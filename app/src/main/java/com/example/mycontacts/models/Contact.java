@@ -10,4 +10,10 @@ public class Contact {
     public String name;
     public String number;
     public String photo;
+
+    public Contact(String name, String number, String photo) {
+        this.name = name;
+        this.number = number;
+        this.photo = photo;
+    }
 }

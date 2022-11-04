@@ -27,6 +27,10 @@ public class MainActivity extends AppCompatActivity {
                 AppDatabase.class,
                 "contact_test_db"
         ).allowMainThreadQueries().build();
+//
+//        db.contactDao().insert(new Contact("pepe","123456","common.png"));
+//        db.contactDao().insert(new Contact("jeje","123457","common.png"));
+//        db.contactDao().insert(new Contact("pepa","123458","common.png"));
 
         List<Contact> contacts = db.contactDao().getAll();
 
@@ -34,7 +38,12 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("length list: "+contacts.size());
         System.out.println("=====================================================================");
 
+        StringBuilder msj = new StringBuilder("Lista de contactos:\n");
 
-        binding.myTextView1.setText("view 1");
+        for (Contact contact: contacts){
+            msj.append(contact.name).append('\n');
+        }
+
+        binding.myTextView1.setText(msj.toString());
     }
 }
