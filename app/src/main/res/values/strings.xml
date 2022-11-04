@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyContacts</string>
+
+    <!--  Buttons of forms  -->
+    <string name="add_btn">ADD</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="edit_btn">Save Change</string>
 </resources>
