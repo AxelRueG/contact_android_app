@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.mycontacts.databinding.ActivityMainBinding;
 import com.example.mycontacts.models.ContactModel;
@@ -45,8 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Toast.makeText(getApplicationContext(),"clicking floating button", Toast.LENGTH_SHORT).show();
-//        Intent intent = new Intent(this, AddContact.class);
-//        startActivity(intent);
+        Intent intent = new Intent(getApplicationContext(), FormContact.class);
+        startActivity(intent);
     }
 }

@@ -22,7 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/orange_float_button"
+        android:backgroundTintMode="src_over"
         android:clickable="true"
+        app:backgroundTint="#E67E22"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
