@@ -5,4 +5,10 @@
     <string name="add_btn">ADD</string>
     <string name="cancel_btn">Cancel</string>
     <string name="edit_btn">Save Change</string>
+
+    <!--  hints  -->
+    <string name="ct_name">contact name</string>
+    <string name="ct_number">phone number</string>
+    <string name="ct_email">email address</string>
+    <string name="ct_fav">favorite contact</string>
 </resources>
