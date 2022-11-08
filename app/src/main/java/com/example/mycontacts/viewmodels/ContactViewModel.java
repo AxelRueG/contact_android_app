@@ -17,8 +17,8 @@ public class ContactViewModel extends ViewModel {
         contacts.postValue(currentContacts);
     }
 
-    public void addContact(String name, String number) {
-        ContactModel contact = new ContactModel((int)(10000*Math.random()),name,number,"undefined");
+    public void addContact(String name, String number, String email, boolean favorite) {
+        ContactModel contact = new ContactModel((int)(10000*Math.random()),name,number,email,favorite,"undefined");
         MyDB.add(contact);
         getAll();
     }

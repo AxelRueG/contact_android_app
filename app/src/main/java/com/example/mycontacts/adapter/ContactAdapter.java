@@ -36,6 +36,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         ContactModel contact = contacts.get(position);
         holder.binding.contactName.setText(contact.name);
         holder.binding.contactNumber.setText(contact.number);
+        holder.binding.contactEmail.setText(contact.email);
     }
 
     @Override

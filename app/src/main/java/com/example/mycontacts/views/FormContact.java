@@ -35,7 +35,9 @@ public class FormContact extends AppCompatActivity implements View.OnClickListen
         if (view.getId() == binding.addContact.getId()){
             String name = binding.name.getText().toString();
             String number = binding.number.getText().toString();
-            contactViewModel.addContact(name,number);
+            String email = binding.email.getText().toString();
+            boolean favorite = binding.favorite.isChecked();
+            contactViewModel.addContact(name,number,email,favorite);
             Toast.makeText(getApplicationContext(),"contact: "+name+" addend",Toast.LENGTH_SHORT).show();
         }
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);

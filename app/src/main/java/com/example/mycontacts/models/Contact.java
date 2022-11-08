@@ -9,11 +9,13 @@ public class Contact {
     public int id;
     public String name;
     public String number;
+    public String email;
     public String photo;
 
-    public Contact(String name, String number, String photo) {
+    public Contact(String name, String number, String email, String photo) {
         this.name = name;
         this.number = number;
+        this.email = email;
         this.photo = photo;
     }
 }
