@@ -5,6 +5,7 @@ import android.util.Log;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.mycontacts.room.AppDatabase;
 import com.example.mycontacts.views.FormContact;
 
 public class FormViewModel extends ViewModel {
@@ -19,6 +20,9 @@ public class FormViewModel extends ViewModel {
         switch (operation) {
             case CREATE:
                 Log.d("message", "handleButton [Created]: "+name.getValue());
+
+
+
                 break;
             case UPDATE:
                 Log.d("message", "handleButton [Update]: "+name.getValue());

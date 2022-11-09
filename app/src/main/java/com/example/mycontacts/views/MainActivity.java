@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        contactVM.getAll(getApplicationContext());
+        contactVM.getAll();
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         binding.floatingActionButton.setOnClickListener(this);
