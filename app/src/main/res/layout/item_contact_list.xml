@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
-    >
+    android:padding="15dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
+        android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_launcher_background"
-            android:src="@drawable/ic_launcher_foreground"
-            android:contentDescription="@string/contact_image" />
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:contentDescription="@string/contact_image"
+            android:src="@drawable/ic_baseline_tag_faces_24" />
 
         <LinearLayout
             android:id="@+id/text_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_marginStart="10dp">
+            android:layout_marginStart="10dp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/contact_name"
@@ -41,6 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:drawableStart="@drawable/phone"
                 android:textSize="18sp"
                 tools:text="+54 342 564-3210" />
 
@@ -49,17 +49,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:drawableStart="@drawable/ic_baseline_alternate_email_24"
                 android:textSize="18sp"
                 tools:text="contact_1@mail.com" />
 
             <ImageView
+                android:id="@+id/isnt_fav"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="5dp"
-                android:src="@drawable/img2"
-                android:contentDescription="@string/favorite_star" />
+                android:contentDescription="@string/favorite_star"
+                android:src="@drawable/img2" />
+
+            <ImageView
+                android:id="@+id/is_fav"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="5dp"
+                android:contentDescription="@string/favorite_star"
+                android:src="@drawable/img1"
+                android:visibility="gone" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -40,6 +40,10 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         holder.binding.contactName.setText(contact.name);
         holder.binding.contactNumber.setText(contact.number);
         holder.binding.contactEmail.setText(contact.email);
+        if (contact.favorite) {
+            holder.binding.isFav.setVisibility(View.VISIBLE);
+            holder.binding.isntFav.setVisibility(View.GONE);
+        }
     }
 
     @Override
