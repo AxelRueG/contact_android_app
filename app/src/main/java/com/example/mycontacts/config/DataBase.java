@@ -4,7 +4,7 @@ import android.app.Application;
 
 import androidx.room.Room;
 
-import com.example.mycontacts.room.AppDatabase;
+import com.example.mycontacts.models.AppDatabase;
 
 public class DataBase extends Application {
     public static AppDatabase db;

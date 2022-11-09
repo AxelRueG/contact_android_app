@@ -1,12 +1,10 @@
-package com.example.mycontacts.room;
-
-import android.content.Context;
+package com.example.mycontacts.models;
 
 import androidx.room.Database;
-import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.example.mycontacts.models.Contact;
+import com.example.mycontacts.models.ContactDao;
 
 @Database(entities = {Contact.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {

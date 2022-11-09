@@ -1,4 +1,4 @@
-package com.example.mycontacts.viewmodels;
+package com.example.mycontacts.config;
 
 public enum Operations {
     CREATE,
