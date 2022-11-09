@@ -2,11 +2,9 @@ package com.example.mycontacts.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -60,10 +58,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         @Override
         public void onClick(View view) {
             int position = this.getAdapterPosition();
-//            Toast.makeText(view.getContext(), "clicked: "+contacts.get(position).id,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(view.getContext(), FormContact.class);
             intent.putExtra("operation", Operations.UPDATE);
-            intent.putExtra("category_id",contacts.get(position).id);
+            intent.putExtra("id",contacts.get(position).id);
             view.getContext().startActivity(intent);
         }
     }

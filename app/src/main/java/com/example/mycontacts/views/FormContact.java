@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.mycontacts.config.Operations;
@@ -34,13 +35,21 @@ public class FormContact extends AppCompatActivity {
                     showMessage("the user was created successfully");
                     goHome();
                 } else {
-                    showMessage("the user wasn't created");
+                    showMessage("something went wrong");
                 }
             }
         });
 
         Operations ope = (Operations) this.getIntent().getSerializableExtra("operation");
-        showMessage(""+ope);
+        if (ope == Operations.CREATE) {
+            binding.buttonsEdit.setVisibility(View.GONE);
+            binding.addContact.setVisibility(View.VISIBLE);
+        } else {
+            binding.buttonsEdit.setVisibility(View.VISIBLE);
+            binding.addContact.setVisibility(View.GONE);
+            int contactId = this.getIntent().getIntExtra("id",0);
+            viewModel.loadContact(contactId);
+        }
     }
 
     private void showMessage(String s){

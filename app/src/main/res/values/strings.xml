@@ -14,4 +14,6 @@
     <string name="favorite_star">favorite star</string>
     <string name="contact_image">contact image</string>
     <string name="add_new_title">add a new contact</string>
+    <string name="ct_update">Update</string>
+    <string name="ct_delete">Delete</string>
 </resources>

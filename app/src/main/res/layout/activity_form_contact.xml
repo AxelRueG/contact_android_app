@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="modelo"
             type="com.example.mycontacts.viewmodels.FormViewModel" />
@@ -28,7 +29,6 @@
 
         <EditText
             android:id="@+id/name"
-            android:text="@={modelo.name}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -36,13 +36,13 @@
             android:autofillHints="name"
             android:hint="@string/ct_name"
             android:inputType="text"
+            android:text="@={modelo.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/number"
-            android:text="@={modelo.number}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -50,13 +50,13 @@
             android:autofillHints="phone"
             android:hint="@string/ct_number"
             android:inputType="phone"
+            android:text="@={modelo.number}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/name" />
 
         <EditText
             android:id="@+id/email"
-            android:text="@={modelo.email}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
@@ -64,17 +64,18 @@
             android:autofillHints="emailAddress"
             android:hint="@string/ct_email"
             android:inputType="textEmailAddress"
+            android:text="@={modelo.email}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/number" />
 
         <CheckBox
             android:id="@+id/favorite"
-            android:checked="@={modelo.favorite}"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="20dp"
+            android:checked="@={modelo.favorite}"
             android:text="@string/ct_fav"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -86,21 +87,45 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            android:onClick="@{()->modelo.handleCreated()}"
             android:text="@string/add_btn"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:onClick="@{()->modelo.handleButton()}"
             app:layout_constraintTop_toBottomOf="@id/favorite" />
 
-        <Button
-            android:id="@+id/cancel"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/buttonsEdit"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="@string/cancel_btn"
+            android:gravity="center"
+            android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addContact" />
+            app:layout_constraintTop_toBottomOf="@id/addContact">
+
+            <Button
+                android:id="@+id/editContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->modelo.handleUpdate()}"
+                android:text="@string/ct_update"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorite" />
+
+            <Button
+                android:id="@+id/deleteContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:onClick="@{()->modelo.handleDelete()}"
+                android:text="@string/ct_delete"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/favorite" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
