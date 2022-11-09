@@ -10,12 +10,13 @@ public class Contact {
     public String name;
     public String number;
     public String email;
+    public boolean favorite;
     public String photo;
 
-    public Contact(String name, String number, String email, String photo) {
+    public Contact(String name, String number, String email, boolean favorite) {
         this.name = name;
         this.number = number;
         this.email = email;
-        this.photo = photo;
+        this.favorite = favorite;
     }
 }

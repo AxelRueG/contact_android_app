@@ -1,22 +1,17 @@
 package com.example.mycontacts.views;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Toast;
 
 import com.example.mycontacts.databinding.ActivityFormContactBinding;
-import com.example.mycontacts.models.ContactModel;
-import com.example.mycontacts.viewmodels.ContactViewModel;
+import com.example.mycontacts.viewmodels.FormViewModel;
 
-public class FormContact extends AppCompatActivity implements View.OnClickListener {
+public class FormContact extends AppCompatActivity {
 
     private ActivityFormContactBinding binding;
-    private ContactViewModel contactViewModel;
+    private FormViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,23 +19,8 @@ public class FormContact extends AppCompatActivity implements View.OnClickListen
         binding = ActivityFormContactBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        contactViewModel = new ViewModelProvider(this).get(ContactViewModel.class);
-
-        binding.addContact.setOnClickListener(this);
-        binding.cancel.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (view.getId() == binding.addContact.getId()){
-            String name = binding.name.getText().toString();
-            String number = binding.number.getText().toString();
-            String email = binding.email.getText().toString();
-            boolean favorite = binding.favorite.isChecked();
-            contactViewModel.addContact(name,number,email,favorite);
-            Toast.makeText(getApplicationContext(),"contact: "+name+" addend",Toast.LENGTH_SHORT).show();
-        }
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
+        viewModel = new ViewModelProvider(this).get(FormViewModel.class);
+        binding.setModelo(viewModel);
+        binding.setLifecycleOwner(this);
     }
 }

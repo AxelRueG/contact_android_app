@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.view.View;
 
 import com.example.mycontacts.adapter.ContactAdapter;
 import com.example.mycontacts.databinding.ActivityMainBinding;
-import com.example.mycontacts.models.ContactModel;
+import com.example.mycontacts.models.Contact;
 import com.example.mycontacts.viewmodels.ContactViewModel;
 
 import java.util.List;
@@ -31,15 +30,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         contactVM = new ViewModelProvider(this).get(ContactViewModel.class);
 
-        contactVM.contacts.observe(this, new Observer<List<ContactModel>>() {
+        contactVM.contacts.observe(this, new Observer<List<Contact>>() {
             @Override
-            public void onChanged(List<ContactModel> contactModels) {
-                contactAdapter = new ContactAdapter(contactModels,getApplicationContext());
+            public void onChanged(List<Contact> contacts) {
+                contactAdapter = new ContactAdapter(contacts, getApplicationContext());
                 binding.recyclerView.setAdapter(contactAdapter);
             }
         });
 
-        contactVM.getAll();
+        contactVM.getAll(getApplicationContext());
 
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         binding.floatingActionButton.setOnClickListener(this);

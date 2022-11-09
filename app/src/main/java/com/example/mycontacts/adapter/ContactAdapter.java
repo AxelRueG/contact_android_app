@@ -10,16 +10,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycontacts.R;
 import com.example.mycontacts.databinding.ItemContactListBinding;
-import com.example.mycontacts.models.ContactModel;
+import com.example.mycontacts.models.Contact;
 
 import java.util.List;
 
 public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHolder> {
 
-    private List<ContactModel> contacts;
+    private List<Contact> contacts;
     private Context context;
 
-    public ContactAdapter(List<ContactModel> contacts, Context context) {
+    public ContactAdapter(List<Contact> contacts, Context context) {
         this.contacts = contacts;
         this.context = context;
     }
@@ -33,7 +33,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ContactAdapter.ViewHolder holder, int position) {
-        ContactModel contact = contacts.get(position);
+        Contact contact = contacts.get(position);
         holder.binding.contactName.setText(contact.name);
         holder.binding.contactNumber.setText(contact.number);
         holder.binding.contactEmail.setText(contact.email);
