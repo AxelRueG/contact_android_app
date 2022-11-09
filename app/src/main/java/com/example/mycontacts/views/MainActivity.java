@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.mycontacts.adapter.ContactAdapter;
+import com.example.mycontacts.config.Operations;
 import com.example.mycontacts.databinding.ActivityMainBinding;
 import com.example.mycontacts.models.Contact;
 import com.example.mycontacts.viewmodels.ContactViewModel;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(getApplicationContext(), FormContact.class);
+        intent.putExtra("operation", Operations.CREATE);
         startActivity(intent);
     }
 }

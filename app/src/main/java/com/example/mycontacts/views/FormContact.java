@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.mycontacts.config.Operations;
 import com.example.mycontacts.databinding.ActivityFormContactBinding;
 import com.example.mycontacts.viewmodels.FormViewModel;
 
@@ -37,6 +38,9 @@ public class FormContact extends AppCompatActivity {
                 }
             }
         });
+
+        Operations ope = (Operations) this.getIntent().getSerializableExtra("operation");
+        showMessage(""+ope);
     }
 
     private void showMessage(String s){

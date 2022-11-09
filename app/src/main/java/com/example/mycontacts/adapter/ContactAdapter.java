@@ -1,16 +1,21 @@
 package com.example.mycontacts.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mycontacts.R;
+import com.example.mycontacts.config.Operations;
 import com.example.mycontacts.databinding.ItemContactListBinding;
 import com.example.mycontacts.models.Contact;
+import com.example.mycontacts.views.FormContact;
 
 import java.util.List;
 
@@ -44,11 +49,22 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
         return contacts.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ItemContactListBinding binding;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             binding = ItemContactListBinding.bind(itemView);
+            binding.getRoot().setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = this.getAdapterPosition();
+//            Toast.makeText(view.getContext(), "clicked: "+contacts.get(position).id,Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(view.getContext(), FormContact.class);
+            intent.putExtra("operation", Operations.UPDATE);
+            intent.putExtra("category_id",contacts.get(position).id);
+            view.getContext().startActivity(intent);
         }
     }
 }
